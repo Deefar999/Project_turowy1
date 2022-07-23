@@ -1,0 +1,24 @@
+public class postac{
+double hp;
+double stamina;
+double atak;
+postac(double hp, double stamina, double atak){
+this.hp=hp;
+this.stamina=stamina;
+this.atak=atak;
+}
+double atak1(){
+	stamina=stamina-10;
+	return atak;
+}
+double atak2(){
+	stamina=stamina-20;
+	return atak*1.5;
+}
+double atakzwrot1(){
+	return atak;
+}
+double atakzwrot2(){
+	return atak*1.5;
+}
+}

@@ -1,0 +1,72 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class GraTurowa {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int wybor, losowyatak, i=1;
+		Random rand= new Random();
+		losowyatak=rand.nextInt(4)+1;
+		Orkclass ork = new Orkclass(200,100,20);
+		magclass mag = new magclass(100,100,50);	
+		
+		do {
+		System.out.println("Wybierz zagranie od 1 do 4:");	
+		System.out.println("1:zwykly atak");	
+		System.out.println("2.atak mierzony:");	
+		System.out.println("3.regeneracja:");	
+		System.out.println("4.umiejetnosc specjalna:");
+		wybor=scan.nextInt();
+		switch(wybor){
+		case 1:
+		ork.hp = ork.hp-mag.atak1();
+		System.out.println("Zadajesz: "+mag.atak1()+"obrażeń");
+		System.out.println("Hp przeciwnika: "+ork.hp);
+		break;
+		case 2:
+		ork.hp=ork.hp-mag.atak2();
+		System.out.println("Zadajesz: "+mag.atak2()+" obrażeń");
+		System.out.println("Hp przeciwnika: "+ork.hp);
+		break;
+		case 3:
+		System.out.println("Leczysz się za: "+mag.regeneracja());
+		System.out.println("Twoje hp:"+mag.hp);
+		break;
+		case 4:
+		ork.hp=ork.hp-mag.plomien();
+		System.out.println("Zadajesz: "+mag.plomien()+" obrażeń");
+		System.out.println("hp przeciwnika:"+ork.hp);
+		break;
+		}
+		
+		
+		System.out.println("Ruch przeciwnika:");
+		switch(losowyatak){
+		case 1:
+		mag.hp= mag.hp-ork.atak1();
+		System.out.println("Przeciwnik zadaje: "+ork.atak1()+" obrażeń");
+		System.out.println("Twoje hp:"+mag.hp);
+		break;
+		case 2:
+		mag.hp= mag.hp-ork.atak2();
+		System.out.println("Przeciwnik zadaje: "+ork.atak2()+" obrażeń");
+		System.out.println("Twoje hp:"+mag.hp);
+		break;
+		case 3:
+		System.out.println("Przeciwnik leczy się za: "+ork.regeneracja());
+		System.out.println("Hp przeciwnika:"+ork.hp);
+		break;
+		case 4:
+		mag.hp=mag.hp-ork.wielkazima();
+		System.out.println("Przeciwnik zadaje: "+ork.wielkazima()+" obrażeń");
+		System.out.println("Twoje hp:"+ork.hp);
+		break;
+		}
+		System.out.println("wartości po turze: "+i);
+		i++;
+		System.out.println("");
+		System.out.println("Mag hp: "+mag.hp+" Mag.stamina: "+mag.stamina+" Mag atak: "+mag.atak);
+		System.out.println("Ork hp: "+ork.hp+" Ork.stamina: "+ork.stamina+" Ork atak: "+ork.atak);
+		}while((mag.hp>0 && ork.hp>0));	
+		}	
+	}

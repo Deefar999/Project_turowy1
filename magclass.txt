@@ -1,0 +1,38 @@
+public class magclass extends postac{
+	double hp; 		
+	double stamina;
+	double atak;
+	magclass(double hp, double stamina, double atak)
+	{
+		super(hp, stamina,atak);
+		this.hp=hp;
+		this.stamina=stamina;
+		this.atak=atak;
+	}
+	
+ double atak1(){
+		stamina=stamina-10;
+		return atak;
+	}
+ double atak2(){
+		stamina=stamina-20;
+		return atak*1.5;
+	} 
+ 
+ double regeneracja(){
+		stamina=stamina+30;
+		hp=hp+20;
+		return 20;
+	}
+double regeneracjazwrot(){
+		return 20;
+	}
+ double plomien(){
+ stamina=stamina-60;
+ return atak*2.5;
+ }	
+ double plomienzwrot(){
+ return atak*2.5;
+ }	
+
+}
